@@ -8,19 +8,15 @@ async function fetchData() {
     renderProducts(allproducts);
 }
 
-fetchData();
-
-function renderProducts(product) {
-    product.forEach(product => {
-        const productCard = `
-            <div class="product-card">
-                <img src="${product.thumbnail}" alt="${product.title}" class="product-image">
-                <h3 class="product-title">${product.title}</h3>
-                <p class="product-description">${product.description.substring(0, 80)}...</p>
-                <p class="product-price">$${product.price}</p>
-                <a href="#" class="product-button">Buy Now</a>
-            </div>
-        `;
-        products.innerHTML += productCard;
-    });
+const renderProducts = (res) =>{
+    products.innerHTML=``;
+    res.map((product)=>{
+        products.innerHTML+=`<div class="card">
+            <h2>${product.title}</h2>
+            <img src="${product.thumbnail}">
+            <p>${product.description}</p>
+        </div>`
+    })
 }
+
+fetchData();
