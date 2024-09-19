@@ -18,8 +18,8 @@ const ProductCard = (props) => {
 
     return (
         <div className="card">
-            <h2>{name}</h2>
-            <img src={image} alt={name} />
+            <h2 className="name">{name}</h2>
+            <img src={image} alt={name}/>
             <p>Rating: {rating}</p>
 
         </div>
